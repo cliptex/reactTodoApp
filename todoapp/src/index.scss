@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background : linear-gradient(90deg, #939b27, #cddca8)
+}
+
+.card-footer {
+
+    .icon {
+        cursor: pointer;
+        
+    }
+    input {
+        cursor: pointer;
+       
+    } 
+}
