@@ -1,32 +1,38 @@
-import React from 'react'
-import Note from './Note'
-import { Col, Container, Row } from 'react-bootstrap'
+import { useState } from "react";
+import { Card, FormCheck } from "react-bootstrap"
+import {BiSolidTrash} from 'react-icons/bi'
 
 const Notes = (props) => {
+  const [isChecked, setIsChecked] = useState(props.checked || false);
 
-  const handleDel = (data) => { 
-    console.log(data.id);
+  const handleChecked = (e) => { 
+    setIsChecked(!isChecked);
+    props.updateCheck(props.id , isChecked)
+   }
+
+  const handleDel = () => { 
+    props.delTodo(props.id)
    }
 
   return (
-    <Container className='my-5'>
-      <Row className='row-cols-3 gy-3'>
-        {
-          props.datas.map((data) => (
-            
-            <Col key={data.id}>
-              <Note
-                {...data}
-                handleDel={handleDel}
-              />
-          </Col>
-            
-          ))
-        }
+    
+    <Card className="card h-100">
+      <Card.Header className="h-100">
+      <Card.Title>{props.todoName}</Card.Title>
+      </Card.Header>
+      <Card.Body className="d-flex justify-content-around">
        
-      </Row>
-          
-    </Container>
+       <FormCheck name={props.id}
+          checked={isChecked}
+          onChange={handleChecked} />
+        <BiSolidTrash
+          className="fs-4 text-danger icon"
+          onClick={handleDel}
+        />
+        
+      </Card.Body>
+    </Card>
+    
   )
 }
 

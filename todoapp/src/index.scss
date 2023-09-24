@@ -3,15 +3,16 @@
 body {
     background : linear-gradient(90deg, #939b27, #cddca8)
 }
-
-.card-footer {
-
-    .icon {
-        cursor: pointer;
-        
-    }
-    input {
-        cursor: pointer;
-       
-    } 
+.mainContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+}
+.card {
+    background-color: transparent;
+    text-align: center;
+}
+.icon, input[type=checkbox] {
+    cursor: pointer;
 }
